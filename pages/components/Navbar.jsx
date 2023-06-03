@@ -6,7 +6,7 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import Link from "next/link";
-import {RxHamburgerMenu, RxCross2} from "react-icons/rx";
+import { RxHamburgerMenu, RxCross2 } from "react-icons/rx";
 
 export default function Header() {
   const [openNav, setOpenNav] = React.useState(false);
@@ -36,11 +36,11 @@ export default function Header() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a to="#" className="flex items-center">
-          7 Days Forcast
-        </a>
+        <Link href="/WeatherForecast" className="flex items-center">
+          7-Days Forecast
+        </Link>
       </Typography>
-      
+
     </ul>
   );
 
@@ -57,7 +57,7 @@ export default function Header() {
           </Typography>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
-           
+
             <IconButton
               variant="text"
               className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden"
@@ -65,7 +65,7 @@ export default function Header() {
               onClick={() => setOpenNav(!openNav)}
             >
               {openNav ? (
-                <RxCross2 className="text-xl"/>
+                <RxCross2 className="text-xl" />
               ) : (
                 <RxHamburgerMenu className="text-xl" />
               )}
@@ -74,7 +74,7 @@ export default function Header() {
         </div>
         <MobileNav open={openNav}>
           {navList}
-          
+
         </MobileNav>
       </Navbar>
       <div className="mx-auto max-w-screen-md py-12">

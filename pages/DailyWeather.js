@@ -4,15 +4,13 @@ import Link from 'next/link';
 import AppLayout from './components/AppLayout';
 
 const API_KEY = '6339093bde1e454e96324306230306';
-const CITY_NAME = 'Lahore';  
+const CITY_NAME = 'Lahore';
 
-// Defining states
 const WeatherData = () => {
     const [weatherData, setWeatherData] = useState(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    // Fetching data
     useEffect(() => {
         const fetchData = async () => {
             const url = `http://api.weatherapi.com/v1/current.json?key=${API_KEY}&q=${CITY_NAME}&aqi=no`;
@@ -31,7 +29,6 @@ const WeatherData = () => {
         fetchData();
     }, []);
 
-
     if (loading) {
         return <div>Fetching weather data...</div>;
     }
@@ -48,15 +45,22 @@ const WeatherData = () => {
     if (!weatherData) {
         return null;
     }
-    return (
 
+    const { temp_c, condition, wind_kph, feelslike_c } = weatherData.current;
+
+    return (
         <AppLayout>
-            <div className='px-20 text-xl'>
+            <div className='text-xl'>
                 <h2 className='text-2xl mb-3'>Weather Data for <span className='font-semibold'>{CITY_NAME}</span> </h2>
-                <p>Temperature: <span className='font-semibold'> {weatherData.current.temp_c}°C</span></p>
-                <p className='mb-4'>Weather: <span className='font-semibold'>{weatherData.current.condition.text}</span></p>
-                <Link className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded' href="/">  Go back</Link>
+                <p>Temperature: <span className='font-semibold'>{temp_c}°C</span></p>
+                <p>Feels Like: <span className='font-semibold'>{feelslike_c}°C</span></p>
+                <p>Weather: <span className='font-semibold'>{condition.text}</span></p>
+                <p>Wind Speed: <span className='font-semibold'>{wind_kph} km/h</span></p>
+                <div className='mt-4'>
+                    <Link className='bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded' href="/">Go back</Link>
+                </div>
             </div>
+        
         </AppLayout>
     );
 };
