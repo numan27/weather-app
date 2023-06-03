@@ -5,7 +5,7 @@ import IMAGES from '@/assets/images';
 import Image from 'next/image';
 import AppLayout from './components/AppLayout';
 
-const Home = ({ currentWeather, forecast }) => {
+const Home = () => {
   return (
     <AppLayout>
       <div>
@@ -18,7 +18,7 @@ const Home = ({ currentWeather, forecast }) => {
                 Welcome to Weather 360
               </h1>
               <p className="my-5 md:text-xl text-lg  text-blueGray-200 text-justify md:text-left">
-                Get ready to stay informed about the latest weather conditions and forecasts. Whether you need to plan your day, check the temperature, or prepare for outdoor activities, our app has you covered.
+                Get ready to stay informed about the latest weather conditions and forecasts. Whether you need to plan your day, check the temperature, or prepare for outdoor activities, our app has you covered. 
               </p>
               <button className='text-white primaryBtn md:w-48 w-full hover:animate-none md:animate-bounce' size="large">Register Today </button>
             </div>

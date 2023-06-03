@@ -4,7 +4,7 @@ import Link from 'next/link';
 import AppLayout from './components/AppLayout';
 
 const API_KEY = '6339093bde1e454e96324306230306';
-const CITY_NAME = 'Lahore';
+const CITY_NAME = 'Lahore';  
 
 // Defining states
 const WeatherData = () => {
